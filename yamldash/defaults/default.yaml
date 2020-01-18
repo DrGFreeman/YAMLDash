@@ -1,0 +1,10 @@
+pets:
+  - name: Felix
+    age: 5
+    species: Cat
+  - name: Buster
+    age: 7
+    species: Dog
+  - name: Gena
+    age: 54
+    species: Aligator

@@ -1,0 +1,27 @@
+$schema: http://json-schema.org/draft-07/schema#
+definitions:
+  pet:
+    properties:
+      name:
+        type: string
+      age:
+        type: number
+        exclusiveMinimum: 0
+      species:
+        enum:
+          - Dog
+          - Cat
+          - Crocodile
+    required:
+      - name
+      - species
+    type: object
+
+properties:
+  pets:
+    items:
+      $ref: '#/definitions/pet'
+    type: array
+required:
+  - pets
+type: object
