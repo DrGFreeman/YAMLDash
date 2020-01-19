@@ -1,7 +1,7 @@
 # YAMLDash
 A simple, interactive, web based YAML validator.
 
-![Screenshot](./screenshot.png)
+[![Screenshot](./screenshot.png)](https://apps.urandom.xyz/yaml)
 
 The application uses the following Python packages:
 * [Plotly Dash](https://dash.plot.ly/) framework to generate the interactive web application.
