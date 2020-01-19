@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import dash_bootstrap_components as dbc
+import dash_core_components as dcc
 import dash_html_components as html
 
 SRC_URL = "https://github.com/DrGFreeman/YAMLDash"
@@ -51,7 +52,7 @@ yaml_col = dbc.Col(
             "",
             id="yaml_feedback",
             className="invalid-feedback",
-        )
+        ),
     ],
     width=12,
     lg=6,
@@ -77,6 +78,15 @@ schema_col = dbc.Col(
             rows=20,
             spellCheck=False,
             wrap=False,
+        ),
+        dcc.Store(
+            id="schema",
+            storage_type="memory",
+        ),
+        html.Div(
+            "",
+            id="schema_feedback",
+            className="invalid-feedback",
         ),
     ],
     width=12,
