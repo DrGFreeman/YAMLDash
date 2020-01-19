@@ -5,6 +5,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 SRC_URL = "https://github.com/DrGFreeman/YAMLDash"
+YAML_REF_URL = "https://yaml.org/spec/1.2/spec.html"
+SCHEMA_REF_URL = "https://json-schema.org/draft/2019-09/json-schema-validation.html"
 
 theme = dbc.themes.UNITED
 
@@ -18,12 +20,29 @@ with open(defaults_path.joinpath('default.yaml'), 'r') as f:
     default_yaml = f.read()
 
 navbar = dbc.NavbarSimple(
-    children=[
+    [
         dbc.NavItem(
-            dbc.NavLink(
+            html.A(
+                "YAML Reference",
+                href=YAML_REF_URL,
+                target="_blank",
+                className="nav-link",
+            )
+        ),
+        dbc.NavItem(
+            html.A(
+                "Schema Reference",
+                href=SCHEMA_REF_URL,
+                target="_blank",
+                className="nav-link",
+            )
+        ),
+        dbc.NavItem(
+            html.A(
                 "Source Code",
                 href=SRC_URL,
-                external_link=True,
+                target="_blank",
+                className="nav-link",
             )
         ),
     ],
