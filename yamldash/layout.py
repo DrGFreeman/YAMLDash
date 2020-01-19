@@ -39,7 +39,10 @@ navbar = dbc.NavbarSimple(
         ),
         dbc.NavItem(
             html.A(
-                "Source Code",
+                [
+                    "Source Code ",
+                    html.I(className="fa fa-lg fa-github")
+                ],
                 href=SRC_URL,
                 target="_blank",
                 className="nav-link",
@@ -120,23 +123,15 @@ footer = html.Div(
         html.P(
             [
                 html.Small(
-                    "Ⓒ 2020, Julien de la Bruère-Terreault (DrGFreeman)."
-                ),
-                html.Br(),
-                html.Small(
                     [
+                        "Ⓒ 2020, Julien de la Bruère-Terreault (DrGFreeman). ",
                         html.A(
                             "MIT License",
                             href=SRC_URL + "/blob/master/LICENSE",
                         ),
-                        ". Source code available at ",
-                        html.A(
-                            SRC_URL,
-                            href=SRC_URL,
-                        ),
                         ".",
                     ]
-                )
+                ),
             ],
             className="text-center text-muted"
         ),
