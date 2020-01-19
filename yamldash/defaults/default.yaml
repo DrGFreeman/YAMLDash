@@ -2,9 +2,11 @@ pets:
   - name: Felix
     age: 5
     species: Cat
+    color: [Black, White]
   - name: Buster
     age: 7
     species: Dog
+    color: Brown
   - name: Gena
     age: 54
-    species: Aligator
+    species: Crocodile

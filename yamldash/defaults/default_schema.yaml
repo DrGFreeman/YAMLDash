@@ -7,6 +7,10 @@ definitions:
       age:
         type: number
         exclusiveMinimum: 0
+      color:
+        items:
+          type: string
+        type: [array, string]
       species:
         enum:
           - Dog
