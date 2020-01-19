@@ -68,7 +68,7 @@ yaml_col = dbc.Col(
             value=default_yaml,
             rows=20,
             spellCheck=False,
-            wrap=False,
+            wrap="off",
         ),
         html.Div(
             "",
@@ -99,7 +99,7 @@ schema_col = dbc.Col(
             value=default_schema,
             rows=20,
             spellCheck=False,
-            wrap=False,
+            wrap="off",
         ),
         dcc.Store(
             id="schema",
