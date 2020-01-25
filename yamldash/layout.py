@@ -22,30 +22,27 @@ with open(defaults_path.joinpath('default.yaml'), 'r') as f:
 navbar = dbc.NavbarSimple(
     [
         dbc.NavItem(
-            html.A(
+            dbc.NavLink(
                 "YAML Reference",
                 href=YAML_REF_URL,
                 target="_blank",
-                className="nav-link",
             )
         ),
         dbc.NavItem(
-            html.A(
+            dbc.NavLink(
                 "Schema Reference",
                 href=SCHEMA_REF_URL,
                 target="_blank",
-                className="nav-link",
             )
         ),
         dbc.NavItem(
-            html.A(
+            dbc.NavLink(
                 [
                     "Source Code ",
                     html.I(className="fa fa-lg fa-github")
                 ],
                 href=SRC_URL,
                 target="_blank",
-                className="nav-link",
             )
         ),
     ],
