@@ -3,7 +3,7 @@ from dash.dependencies import Output
 import jsonschema
 import yaml
 
-from yamldash import app
+from yamldash.app import app
 
 
 @app.callback(

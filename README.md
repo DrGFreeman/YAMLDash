@@ -19,16 +19,16 @@ An online instance is running at https://apps.urandom.xyz/yaml.
 
 ### Execution from source
 
-Install the requirements using pip:
+Clone or download the repository, then, from the root of the the repository, install the *yamldash* package using pip:
 
 ```
-$ pip install -r requirements.txt
+$ pip install ./
 ```
 
 Launch the application server:
 
 ```
-$ python app.py
+$ yamldash
 ```
 
 Access the application at the URL indicated in the terminal (usually http://127.0.0.1:8050).
