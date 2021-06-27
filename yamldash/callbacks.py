@@ -1,17 +1,20 @@
 from dash.dependencies import Input
 from dash.dependencies import Output
-
 import jsonschema
 import yaml
 
-from yamldash import app
+from yamldash.app import app
 
 
-@app.callback([Output("schema", "data"),
-               Output("schema_text", "className"),
-               Output("schema_feedback", "children"),
-               Output("schema_feedback", "className")],
-              [Input("schema_text", "value")])
+@app.callback(
+    [
+        Output("schema", "data"),
+        Output("schema_text", "className"),
+        Output("schema_feedback", "children"),
+        Output("schema_feedback", "className"),
+    ],
+    [Input("schema_text", "value")],
+)
 def validate_schema(schema_text):
     class_name = "form-control"
 
@@ -24,35 +27,30 @@ def validate_schema(schema_text):
                 None,
                 class_name + " is-invalid",
                 f"Invalid Schema: {e}",
-                "invalid-feedback"
+                "invalid-feedback",
             )
         except jsonschema.ValidationError:
             return (
                 schema_dict,
                 class_name + " is-valid",
                 "Valid Schema",
-                "valid-feedback"
+                "valid-feedback",
             )
         except Exception as e:
             return (
                 None,
                 class_name + " is-invalid",
                 f"YAML ParsingError: {e}",
-                "invalid-feedback"
+                "invalid-feedback",
             )
 
-    return (
-        None,
-        class_name,
-        "",
-        ""
-    )
+    return (None, class_name, "", "")
 
 
-@app.callback([Output("yaml_text", "className"),
-               Output("yaml_feedback", "children")],
-              [Input("schema", "data"),
-               Input("yaml_text", "value")])
+@app.callback(
+    [Output("yaml_text", "className"), Output("yaml_feedback", "children")],
+    [Input("schema", "data"), Input("yaml_text", "value")],
+)
 def validate_yaml(schema, yaml_text):
     class_name = "form-control"
 
@@ -62,10 +60,7 @@ def validate_yaml(schema, yaml_text):
         else:
             return class_name, ""
     except Exception as e:
-        return (
-            class_name + " is-invalid",
-            f"YAML ParsingError: {e}"
-        )
+        return (class_name + " is-invalid", f"YAML ParsingError: {e}")
 
     if yaml_dict is not None:
         if schema is not None:
@@ -73,10 +68,7 @@ def validate_yaml(schema, yaml_text):
                 jsonschema.validate(yaml_dict, schema)
                 return class_name + " is-valid", ""
             except jsonschema.exceptions.ValidationError as e:
-                return (
-                    class_name + " is-invalid",
-                    f"Schema ValidationError: {e}"
-                )
+                return (class_name + " is-invalid", f"Schema ValidationError: {e}")
         else:
             return class_name + " is-valid", ""
     else:
