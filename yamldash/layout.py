@@ -34,6 +34,7 @@ navbar = dbc.NavbarSimple(
     brand_href="#",
     color="primary",
     dark=True,
+    fluid=True,
 )
 
 yaml_col = dbc.Col(
@@ -47,11 +48,13 @@ yaml_col = dbc.Col(
             rows=20,
             spellCheck=False,
             wrap="off",
+            persistence=True,
+            persistence_type="session",
         ),
         html.Div("", id="yaml_feedback", className="invalid-feedback"),
     ],
     width=12,
-    lg=6,
+    xl=6,
 )
 
 schema_col = dbc.Col(
@@ -69,12 +72,14 @@ schema_col = dbc.Col(
             rows=20,
             spellCheck=False,
             wrap="off",
+            persistence=True,
+            persistence_type="session",
         ),
         dcc.Store(id="schema", storage_type="memory",),
         html.Div("", id="schema_feedback", className="invalid-feedback"),
     ],
     width=12,
-    lg=6,
+    xl=6,
 )
 
 footer = html.Div(
@@ -96,6 +101,6 @@ footer = html.Div(
     className="mt-4",
 )
 
-body = dbc.Container(children=[dbc.Row([yaml_col, schema_col],), footer])
+body = dbc.Container(children=[dbc.Row([yaml_col, schema_col],), footer], fluid=True)
 
 layout = html.Div([navbar, body])
