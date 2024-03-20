@@ -1,4 +1,4 @@
-black==19.10b0
+black==24.3.0
 dash
 dash-bootstrap-components>=0.8.2
 flake8==3.8.4
